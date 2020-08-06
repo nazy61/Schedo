@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Schedo</string>
+    <string name="strike_line"> <strike><b>Meeting with Grace</b></strike> </string>
+    <string name="emailSentErrorMessage">Error in sending Reset Mail.</string>
+    <string name="emailSentMessage">Email sent. Check Your Email Address.</string>
+    <string name="facebook_app_id">667485250515339</string>
+    <string name="fb_login_protocol_scheme">fb667485250515339</string>
+</resources>
