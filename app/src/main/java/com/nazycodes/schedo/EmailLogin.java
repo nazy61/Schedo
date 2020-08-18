@@ -77,8 +77,8 @@ public class EmailLogin extends AppCompatActivity {
     private void validate(){
         if(email.isEmpty()){
             etEmail.setError("email cannot be empty!");
-        } else if (password.isEmpty() || password.length() < 4) {
-            etPassword.setError("Password cannot be less than 4 characters!");
+        } else if (password.isEmpty() || password.length() < 5) {
+            etPassword.setError("Password cannot be less than 5 characters!");
         } else {
             pbLoading.setVisibility(View.VISIBLE);
             signInUser();

@@ -25,12 +25,14 @@ public class ForgotPassword extends AppCompatActivity {
 
     private String email;
 
-    private FirebaseAuth auth = FirebaseAuth.getInstance();
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
+
+        auth = FirebaseAuth.getInstance();
 
         etResetEmail = findViewById(R.id.etResetEmail);
         cvReset = findViewById(R.id.cvReset);
@@ -41,7 +43,6 @@ public class ForgotPassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 email = etResetEmail.getText().toString().trim();
-
                 validate();
             }
         });

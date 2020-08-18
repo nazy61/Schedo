@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Registration extends AppCompatActivity {
     private TextInputEditText etFullName;
@@ -75,8 +76,8 @@ public class Registration extends AppCompatActivity {
             etFullName.setError("Full Name cannot be empty");
         } else if (email.isEmpty() || !email.contains("@")) {
             etEmail.setError("Email must be valid");
-        } else if (password.isEmpty()) {
-            etPassword.setError("Password cannot be empty");
+        } else if (password.isEmpty() || !(password.length() > 5)) {
+            etPassword.setError("Please Enter a password");
         } else if (!password.equals(confirmPassword)) {
             etPassword.setError("Password do not match");
             etConfirmPassword.setError("Password do not match");
@@ -95,6 +96,7 @@ public class Registration extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             pbLoading.setVisibility(View.INVISIBLE);
                             Log.d(TAG, "createUserWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(Registration.this, Home.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
